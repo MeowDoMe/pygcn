@@ -85,6 +85,7 @@ def normalize(mx):
 
 def accuracy(output, labels):
     preds = output.max(1)[1].type_as(labels)
+    # pytorch tensor的max返回一个元组(values, indices)
     correct = preds.eq(labels).double()
     correct = correct.sum()
     return correct / len(labels)
